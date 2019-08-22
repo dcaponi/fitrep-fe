@@ -10,7 +10,7 @@ class Rating extends Component {
   }
   componentDidMount(){
     const { match: { params } } = this.props;
-    fetch('https://api.fitrep.developerdom.com/rating_link/'+ params.id, {})
+    fetch('https://fitrep.api.developerdom.com/rating_link/'+ params.id, {})
       .then((res) => {
         return res.json()
       })
@@ -29,7 +29,7 @@ class Rating extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://api.fitrep.developerdom.com/ratings', {
+    fetch('https://fitrep.api.developerdom.com/ratings', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
