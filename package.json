@@ -3,18 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dotenv": "^8.1.0",
     "react": "^16.8.6",
     "react-cookie": "^3.0",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
+    "redux": "^4.0.4",
     "yarn": "^1.16.0"
   },
   "scripts": {
     "start": "PORT=8081 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "deploy": "aws s3 sync build/ s3://fitrep.developerdom.com",
+    "deploy": "export AWS_PROFILE=prod-frontend && aws s3 sync build/ s3://fitrep.developerdom.com",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
