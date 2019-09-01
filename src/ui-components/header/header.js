@@ -4,7 +4,11 @@ class Header extends Component {
   render(){
     return (
       <div className="header">
-        <header>MY SICC ASS APP!!!!</header>
+        <header>
+          <h1>Ratings</h1>
+          <h4>All your feedback in one place</h4>
+          
+        </header>
       </div>
     );
   }

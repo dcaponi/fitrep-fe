@@ -1,29 +1,8 @@
-.rating {
-  height: 100%;
-  background: #F8F8F8;
-}
 
 .rating-header {
   background: #3395D3;
+  color: #fffffe;
+  font-size: 25px;
   text-align: center;
   padding: 50px;
-}
-
-.rating-form {
-  padding: 10px;
-  text-align: center;
-  margin-top: 50px;
-}
-
-.form-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.comment-section {
-  margin-top: 50px;
-}
-
-.comment-title {
-  margin-bottom: 20px;
 }

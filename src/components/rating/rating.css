@@ -1,10 +1,13 @@
 .rating {
   height: 100%;
   background: #F8F8F8;
+  flex: 1;
 }
 
 .rating-header {
   background: #3395D3;
+  color: #fffffe;
+  font-size: 25px;
   text-align: center;
   padding: 50px;
 }
@@ -26,4 +29,20 @@
 
 .comment-title {
   margin-bottom: 20px;
+}
+
+.submit-button {
+  margin: 20px;
+  background-color: #3395D3;
+  color: #fffffe;
+  padding: 20px;
+  font-size: 20px;
+  width: 50%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.removed-notice {
+  text-align: center;
+  margin: 20px;
 }

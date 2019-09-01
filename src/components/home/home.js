@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import Header from '../../ui-components/header/header'
-import LeftRail from '../../ui-components/left-rail/left-rail'
-
+import AppWrapper from '../../ui-components/app-wrapper/app-wrapper';
 import './home.css';
+
 class Home extends Component {
   render(){
     return (
-      <div className="home">
-      <Header/>
-      <LeftRail/>
-      home
-      </div>
+      <AppWrapper>
+        <div className="home">
+          home
+        </div>
+      </AppWrapper>
     );
   }
 }

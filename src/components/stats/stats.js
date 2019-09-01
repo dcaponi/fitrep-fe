@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import Header from '../../ui-components/header/header'
-import LeftRail from '../../ui-components/left-rail/left-rail'
-
+import AppWrapper from '../../ui-components/app-wrapper/app-wrapper';
 import './stats.css';
+
 class Stats extends Component {
   render(){
     return (
-      <div className="stats">
-        <Header/>
-        <LeftRail/>
-        STATS
-      </div>
+      <AppWrapper>
+        <div className="stats">
+          STATS
+        </div>
+      </AppWrapper>
     );
   }
 }

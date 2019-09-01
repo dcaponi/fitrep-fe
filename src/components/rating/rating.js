@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-
+import Slider from "../../ui-components/slider/slider";
 import './rating.css';
 class Rating extends Component {
 
   state = {
     userId: null,
-    rating: "3",
+    rating: "5.5",
     comment: ""
   }
   componentDidMount(){
     const { match: { params } } = this.props;
-    fetch('https://fitrep.api.developerdom.com/rating_link/'+ params.id, {})
+    let fitrepUrl = process.env.REACT_APP_FITREP_URL;
+    fetch(`${fitrepUrl}/rating_link/`+ params.id, {})
       .then((res) => {
         return res.json()
       })
@@ -29,7 +30,8 @@ class Rating extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://fitrep.api.developerdom.com/ratings', {
+    let fitrepUrl = process.env.REACT_APP_FITREP_URL;
+    fetch(`${fitrepUrl}/ratings`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -43,44 +45,61 @@ class Rating extends Component {
         }
       })
     })
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        this.props.history.push('/rating')
-      });
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      this.props.history.push('/rating')
+    });
   }
 
   handleChange = (e) => {
-    let newState = this.state;
+    e.preventDefault();
+    let newState = Object.assign({}, this.state);
     newState[e.target.name] = e.target.value;
     this.setState(newState);
   }
 
+  handleLabelClick = (labelRating) => {
+    let newState = Object.assign({}, this.state);
+    newState["rating"] = labelRating;
+    this.setState(newState);
+  }
+
   render(){
-    return (
-      <div className="rating">
-        <h3 className="rating-header">Leave Your Feedback</h3>
-        <form onSubmit={this.handleSubmit} className="rating-form">
-          <p className="form-title">How am I doing?</p>
-          <input type="radio" id="1" name="rating" value="1" onChange={this.handleChange}/>
-          <label htmlFor="1">Not Good &nbsp;</label>
-          <input type="radio" id="2" name="rating" value="2" onChange={this.handleChange}/>
-          <label htmlFor="2">Could Improve &nbsp;</label>
-          <input type="radio" id="3" name="rating" value="3" onChange={this.handleChange} defaultChecked/>
-          <label htmlFor="3">Meh &nbsp;</label>
-          <input type="radio" id="4" name="rating" value="4" onChange={this.handleChange}/>
-          <label htmlFor="4">Good &nbsp;</label>
-          <input type="radio" id="5" name="rating" value="5" onChange={this.handleChange}/>
-          <label htmlFor="5">Amazing! &nbsp;</label>
-          <div className="comment-section">
-            <p className="comment-title">Would you like to leave a comment?</p>
-            <textarea name="comment" value={this.state.comment} onChange={this.handleChange} rows="5" cols="100"/>
-          </div>
-          <input type="submit"/>
-        </form>
-      </div>
-    );
+    if(this.state.userId){
+      return (
+        <div className="rating">
+          <h3 className="rating-header">Leave Your Feedback</h3>
+          <form onSubmit={this.handleSubmit} className="rating-form">
+            <p className="form-title">How am I doing?</p>
+            <Slider
+              minValue="1"
+              midValue="5.5"
+              maxValue="10"
+              value={this.state.rating}
+              labelClicks={this.handleLabelClick}
+              slide={this.handleChange}
+            />
+            <div className="comment-section">
+              <p className="comment-title">Would you like to leave a comment?</p>
+              <textarea name="comment" value={this.state.comment} onChange={this.handleChange} rows="5" cols="100"/>
+            </div>
+
+            <input className="submit-button" type="submit"/>
+            <p><br/>Your feedback will remain anonymous.<br/></p>
+          </form>
+        </div>
+      );
+    }
+    else{
+      return (
+        <div className="rating">
+          <h3 className="rating-header">Leave Your Feedback</h3>
+          <p className="removed-notice">Oops! This link seems to have expired or was taken down by the requester</p>
+        </div>
+      )
+    }
   }
 }
 
