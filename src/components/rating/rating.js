@@ -4,7 +4,7 @@ import './rating.css';
 class Rating extends Component {
 
   state = {
-    userId: null,
+    ratingLinkId: null,
     rating: "5.5",
     comment: ""
   }
@@ -12,20 +12,14 @@ class Rating extends Component {
     const { match: { params } } = this.props;
     let fitrepUrl = process.env.REACT_APP_FITREP_URL;
     fetch(`${fitrepUrl}/rating_link/`+ params.id, {})
-      .then((res) => {
-        return res.json()
-      })
-      .then((res) => {
-        if(res.length > 0){
-          this.setState({userId: res[0]['user_id']})
-        }
-        else{
-          console.log("The rating link may have expired")
-        }
-      })
-      .catch((res) => {
-        console.log("The requested rating link was not found")
-      });
+    .then((res) => {
+      if(res.status === 200) {
+        this.setState({ratingLinkId: params.id});
+      }
+      else{
+        console.log("An active rating link with the given id was not found")
+      }
+    })
   }
 
   handleSubmit = (e) => {
@@ -39,18 +33,15 @@ class Rating extends Component {
       },
       body: JSON.stringify({
         rating: {
-          user_id: this.state.userId,
+          rating_link_id: this.state.ratingLinkId,
           rating: this.state.rating,
           comment: this.state.comment
         }
       })
     })
     .then((res) => {
-      return res.json();
-    })
-    .then((res) => {
       this.props.history.push('/rating')
-    });
+    })
   }
 
   handleChange = (e) => {
@@ -67,7 +58,7 @@ class Rating extends Component {
   }
 
   render(){
-    if(this.state.userId){
+    if(this.state.ratingLinkId) {
       return (
         <div className="rating">
           <h3 className="rating-header">Leave Your Feedback</h3>

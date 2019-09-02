@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import Header from '../header/header';
-import LeftRail from '../left-rail/left-rail';
+// import LeftRail from '../left-rail/left-rail';
+import { connect } from "react-redux";
+import { setUser } from "../../redux/actions";
 
-class AppWrapper extends Component {
+import "./app-wrapper.css";
+
+class AW extends Component {
 
   constructor(props){
     super(props);
@@ -27,14 +31,31 @@ class AppWrapper extends Component {
   render(){
     return(
       <div className="App">
-        <Header/>
+        <Header user={this.props.currentUser}/>
         <div className="app-body">
-          <LeftRail/>
-          {this.props.children}
+          {/*<LeftRail/>*/}
+          <div className="page-component">
+            {this.props.children}
+          </div>
         </div>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.isAuthenticated,
+    currentUser: state.currentUser
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setUser: (user) => dispatch(setUser(user))
+  }
+};
+
+const AppWrapper = connect(mapStateToProps, mapDispatchToProps)(AW)
 
 export default AppWrapper

@@ -1,0 +1,17 @@
+.comments-box {
+  overflow: scroll;
+  height: 100%;
+}
+
+.comments-box-header {
+  text-align: center;
+}
+
+.comment-line {
+  margin: 10px;
+}
+
+.comment-author {
+  display: inline-block;
+  margin-bottom: 5px;
+}

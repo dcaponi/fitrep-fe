@@ -6,8 +6,6 @@ import Stats from './components/stats/stats';
 import RatingAbout from './components/rating-about/rating-about';
 
 import './App.css';
-import { connect } from "react-redux";
-import { setUser } from "./redux/actions"
 
 class App extends Component {
   render(){
@@ -23,19 +21,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isAuthenticated: state.isAuthenticated,
-    currentUser: state.currentUser
-  }
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setUser: (user) => dispatch(setUser(user))
-  }
-};
-
-const AuthedApp = connect(mapStateToProps, mapDispatchToProps)(App)
-
-export default AuthedApp;
+export default App;
