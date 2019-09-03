@@ -27,28 +27,32 @@ const StatsBox = (props) => {
         uniqRatings[rating.rater_ip].push(rating.rating);
       }
     })
+    switch (props.calc) {
+      case "min":
+        boxValue = min;
+        break;
+      case "max":
+        boxValue = max;
+        break;
+      case "avg":
+        if(ratingValues.length > 0){
+          boxValue = sum / ratingValues.length;
+        }
+        break;
+      case "countUniq":
+        boxValue = Object.keys(uniqRatings).length;
+        break;
+      case "count":
+        boxValue = ratingValues.length;
+        break;
+      default:
+        boxValue = 0;
+    }
   }
-  switch (props.calc) {
-    case "min":
-      boxValue = min;
-      break;
-    case "max":
-      boxValue = max;
-      break;
-    case "avg":
-      if(ratingValues.length > 0){
-        boxValue = sum / ratingValues.length;
-      }
-      break;
-    case "countUniq":
-      boxValue = Object.keys(uniqRatings).length;
-      break;
-    case "count":
-      boxValue = ratingValues.length;
-      break;
-    default:
-      boxValue = 0;
+  else{
+    boxValue = 0;
   }
+
   return (
     <div className="stats-box">
       <h3 className="stat-title">{props.title}</h3>

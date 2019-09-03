@@ -58,9 +58,11 @@ class H extends Component {
     })
     .then((res) => {
       let newState = Object.assign({}, this.state);
-      newState.ratings = res[0].ratings;
-      newState.ratingLinkUuids = res[1].rating_links.map(r => r.uuid);
-      this.setState(newState)
+      if(res[0].ratings){
+        newState.ratings = res[0].ratings;
+        newState.ratingLinkUuids = res[1].rating_links.map(r => r.uuid);
+        this.setState(newState)
+      }
     })
   }
 
