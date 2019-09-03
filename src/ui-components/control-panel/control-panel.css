@@ -1,0 +1,17 @@
+.controls {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.rating-link-field {
+  margin: 20px 0px;
+  line-height: 30px;
+  width: 50%;
+}
+
+.link-icon {
+  font-size: 30px;
+  vertical-align: middle;
+  margin: 0px 10px;
+  cursor: pointer;
+}

@@ -1,4 +1,15 @@
 .stats-box {
   padding: 20px;
   margin: 20px 20px;
+  min-width: 10px;
+}
+
+.stats-box {
+  text-align: left;
+}
+
+@media (max-width: 500px) {
+  .stats-box {
+    text-align: center;
+  }
 }

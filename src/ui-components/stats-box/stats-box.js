@@ -51,7 +51,7 @@ const StatsBox = (props) => {
   }
   return (
     <div className="stats-box">
-      <h3>{props.title}</h3>
+      <h3 className="stat-title">{props.title}</h3>
       <h1>{boxValue}</h1>
     </div>
   )

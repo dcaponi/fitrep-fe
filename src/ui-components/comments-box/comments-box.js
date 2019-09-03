@@ -20,14 +20,19 @@ const CommentsBox = (props) => {
       </div>
     )
   })
-  return (
-    <div>
-      <h2>Comments</h2>
-      <div className="comments-box">
-        {comments}
+  if(comments.length > 0){
+    return (
+      <div>
+        <h2>Comments</h2>
+        <div className="comments-box">
+          {comments}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
+  else{
+    return <div></div>
+  }
 
 }
 

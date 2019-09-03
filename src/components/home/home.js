@@ -11,8 +11,43 @@ import './home.css';
 
 class H extends Component {
   state = {
-    ratingLinks: [],
+    ratingLinkUuids: [],
     ratings: []
+  }
+
+  createLink = () => {
+    let fitrepUrl = process.env.REACT_APP_FITREP_URL;
+    fetch(`${fitrepUrl}/rating_links`, {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      let newState = Object.assign({}, this.state);
+      newState.ratingLinkUuids = [ res.rating_links[0].uuid ];
+      this.setState(newState)
+    })
+  }
+
+  destroyLink = (uuid) => {
+    let fitrepUrl = process.env.REACT_APP_FITREP_URL;
+    fetch(`${fitrepUrl}/rating_links/${uuid}`, {
+      credentials: 'include',
+      method: 'DELETE'
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      let newState = Object.assign({}, this.state);
+      console.log("old", this.state)
+      console.log("new", newState)
+      newState.ratingLinkUuids = [];
+      this.setState(newState)
+      console.log("changed", this.state)
+    })
   }
 
   componentDidMount(){
@@ -27,18 +62,22 @@ class H extends Component {
     .then((res) => {
       let newState = Object.assign({}, this.state);
       newState.ratings = res[0].ratings;
-      newState.ratingLinks = res[1].rating_links;
+      newState.ratingLinkUuids = res[1].rating_links.map(r => r.uuid);
       this.setState(newState)
     })
   }
+
   render(){
     if(this.props.isAuthenticated){
-      console.log(this.state.ratingLinks[0])
       return (
         <AppWrapper>
           <div className="home">
             <Dashboard ratings={this.state.ratings}/>
-            <ControlPanel ratingLinks={this.state.ratingLinks} />
+            <ControlPanel
+              createLink={this.createLink}
+              destroyLink={this.destroyLink}
+              ratingLinkUuids={this.state.ratingLinkUuids}
+            />
             <CommentsBox ratings={this.state.ratings} />
           </div>
         </AppWrapper>
