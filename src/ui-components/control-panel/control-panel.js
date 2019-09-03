@@ -15,7 +15,6 @@ class ControlPanel extends Component {
   render(){
     let linkText
     let ratingLinkUuid
-    console.log("render", this.props.ratingLinkUuids)
     if( this.props.ratingLinkUuids.length > 0 ){
       linkText = process.env.REACT_APP_RATINGS_URL + "/rating/" + this.props.ratingLinkUuids[0]
       ratingLinkUuid = (

@@ -42,11 +42,8 @@ class H extends Component {
     .then((res) => res.json())
     .then((res) => {
       let newState = Object.assign({}, this.state);
-      console.log("old", this.state)
-      console.log("new", newState)
       newState.ratingLinkUuids = [];
       this.setState(newState)
-      console.log("changed", this.state)
     })
   }
 
