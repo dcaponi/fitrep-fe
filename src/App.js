@@ -5,7 +5,7 @@ import Rating from './components/rating/rating';
 import Stats from './components/stats/stats';
 import RatingAbout from './components/rating-about/rating-about';
 
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   render(){

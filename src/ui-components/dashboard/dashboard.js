@@ -1,7 +1,7 @@
 import React from "react";
 import StatsBox from "../stats-box/stats-box";
 
-import "./dashboard.css"
+import "./dashboard.scss"
 
 const Dashboard = (props) => {
   return (

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { IoMdCopy, IoMdCreate, IoMdTrash } from "react-icons/io"
 import ReactTooltip from 'react-tooltip'
 
-import "./control-panel.css"
+import "./control-panel.scss"
 
 class ControlPanel extends Component {
 

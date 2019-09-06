@@ -7,7 +7,7 @@ import ControlPanel from '../../ui-components/control-panel/control-panel';
 
 
 import { connect } from "react-redux";
-import './home.css';
+import './home.scss';
 
 class H extends Component {
   state = {

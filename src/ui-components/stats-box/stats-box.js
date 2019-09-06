@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./stats-box.css"
+import "./stats-box.scss"
 
 const StatsBox = (props) => {
   let ratingValues = [];

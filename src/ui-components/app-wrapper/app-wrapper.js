@@ -4,7 +4,7 @@ import Header from '../header/header';
 import { connect } from "react-redux";
 import { setUser } from "../../redux/actions";
 
-import "./app-wrapper.css";
+import "./app-wrapper.scss";
 
 class AW extends Component {
 

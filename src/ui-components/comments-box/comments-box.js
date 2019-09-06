@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./comments-box.css"
+import "./comments-box.scss"
 
 const CommentsBox = (props) => {
   let comments = props.ratings.map((rating) => {
