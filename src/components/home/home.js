@@ -4,8 +4,6 @@ import CommentsBox from '../../ui-components/comments-box/comments-box';
 import Dashboard from '../../ui-components/dashboard/dashboard';
 import ControlPanel from '../../ui-components/control-panel/control-panel';
 
-
-
 import { connect } from "react-redux";
 import './home.scss';
 

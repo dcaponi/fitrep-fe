@@ -23,14 +23,14 @@ class ControlPanel extends Component {
           <IoMdCopy data-tip data-for='copy' className="link-icon" onClick={this.copyLink}/>
           <ReactTooltip id='copy'><span>Copy Rating Link</span></ReactTooltip>
           <IoMdTrash data-tip data-for='recall' className="link-icon" onClick={()=>this.props.destroyLink(this.props.ratingLinkUuids[0])}/>
-          <ReactTooltip id='recall'><span>Recall Rating Link - Nobody can continue to use this link to submit ratings and you must generate a new link!</span></ReactTooltip>
+          <ReactTooltip id='recall'><span>Recall Rating Link - Stop accepting ratings with this link.</span></ReactTooltip>
         </span>
       )
     }
     else{
       ratingLinkUuid = (
         <span>
-          <input className="rating-link-field" id="ratingLinkUuid" value={"No Link Yet!"} readOnly/>
+          <input className="rating-link-field" id="ratingLinkUuid" value={"Click the Create Icon on the Right"} readOnly/>
           <IoMdCreate data-tip data-for='create' className="link-icon" onClick={this.props.createLink}/>
           <ReactTooltip id='create'><span>Create A New Rating Link</span></ReactTooltip>
         </span>
@@ -38,10 +38,9 @@ class ControlPanel extends Component {
     }
     return (
       <div className="control-panel">
-        <h2>Control Panel</h2>
+        <h2>Rating Link</h2>
         <div className="controls">
-          <strong>My Rating Link</strong> &mdash; Anyone with this link can give you feedback.<br/><br/>
-          <strong>How to use</strong> &mdash; Embed this in an email, share on social media, and whatever you do share wisely! <br/>
+          <strong>How to use</strong> &mdash; Anyone with this link can give you feedback. Embed this in an email, share on social media, and whatever you do share wisely! <br/>
           {ratingLinkUuid}
         </div>
       </div>

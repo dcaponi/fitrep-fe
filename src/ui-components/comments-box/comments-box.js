@@ -8,7 +8,7 @@ const CommentsBox = (props) => {
     let dateString = date.toLocaleDateString();
     let commentLine;
     if(rating.comment){
-      commentLine = `Comment: ${rating.comment}`
+      commentLine = `${rating.comment}`
     }
     return (
       <div key={rating.id.toString()}>
@@ -23,7 +23,7 @@ const CommentsBox = (props) => {
   if(comments.length > 0){
     return (
       <div>
-        <h2>Comments</h2>
+        <h2>All Ratings</h2>
         <div className="comments-box">
           {comments}
         </div>
