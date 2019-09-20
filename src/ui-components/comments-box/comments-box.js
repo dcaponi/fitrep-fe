@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./comments-box.scss"
-
 const CommentsBox = (props) => {
   let comments = props.ratings.map((rating) => {
     let date = new Date(rating.created_at);

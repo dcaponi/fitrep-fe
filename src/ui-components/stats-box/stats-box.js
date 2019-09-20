@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./stats-box.scss";
-
 const StatsBox = (props) => {
   return (
     <div className="stats-box">

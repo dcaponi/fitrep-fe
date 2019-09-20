@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AppWrapper from '../../ui-components/app-wrapper/app-wrapper';
-import './stats.scss';
 
 class Stats extends Component {
   render(){

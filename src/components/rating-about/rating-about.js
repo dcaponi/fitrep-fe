@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './rating-about.scss';
 const RatingAbout = (props) => {
   return (
     <div className="rating">

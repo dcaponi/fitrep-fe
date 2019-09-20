@@ -5,7 +5,6 @@ import Dashboard from '../../ui-components/dashboard/dashboard';
 import ControlPanel from '../../ui-components/control-panel/control-panel';
 
 import { connect } from "react-redux";
-import './home.scss';
 
 class Home extends Component {
   state = {

@@ -2,8 +2,6 @@ import React from "react";
 import { Max, Min, Avg, TotalCount, UniqCount } from "../stats-box/stats-calculator";
 import StatsBox from "../stats-box/stats-box";
 
-import "./dashboard.scss"
-
 const Dashboard = (props) => {
   return (
     <div>

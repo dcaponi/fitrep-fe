@@ -4,8 +4,6 @@ import Header from '../header/header';
 import { connect } from "react-redux";
 import { setUser } from "../../redux/actions";
 
-import "./app-wrapper.scss";
-
 class AppWrapper extends Component {
 
   constructor(props){

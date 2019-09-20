@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Slider from "../../ui-components/slider/slider";
-import './rating.scss';
 
 class Rating extends Component {
   state = {

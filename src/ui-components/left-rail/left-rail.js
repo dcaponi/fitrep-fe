@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './left-rail.scss';
 import { Link } from "react-router-dom";
+
 class LeftRail extends Component {
   render(){
     return (

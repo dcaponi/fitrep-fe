@@ -1,0 +1,18 @@
+// import variables
+@import 'styles/colors';
+
+// Import the various component sheets
+@import "app";
+@import "components/home/home";
+@import "components/rating/rating";
+@import "components/rating-about/rating-about";
+@import "components/stats/stats";
+
+@import "ui-components/app-wrapper/app-wrapper";
+@import "ui-components/comments-box/comments-box";
+@import "ui-components/control-panel/control-panel";
+@import "ui-components/dashboard/dashboard";
+@import "ui-components/header/header";
+@import "ui-components/left-rail/left-rail";
+@import "ui-components/slider/slider";
+@import "ui-components/stats-box/stats-box";

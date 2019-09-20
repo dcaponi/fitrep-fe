@@ -1,6 +1,5 @@
 import React from "react";
 import { IoMdSad, IoMdHappy, IoMdRemoveCircleOutline } from "react-icons/io"
-import "./slider.scss"
 
 const Slider = (props) => {
   return (

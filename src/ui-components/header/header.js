@@ -1,5 +1,5 @@
 import React from 'react';
-import './header.scss';
+
 const Header = (props) => {
   let linkString = process.env.REACT_APP_LOGIN_URL + "/login?redirect=" + process.env.REACT_APP_RATINGS_URL;
   let userNameString = "Log In"
