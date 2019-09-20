@@ -6,7 +6,7 @@ import { setUser } from "../../redux/actions";
 
 import "./app-wrapper.scss";
 
-class AW extends Component {
+class AppWrapper extends Component {
 
   constructor(props){
     super(props);
@@ -56,6 +56,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-const AppWrapper = connect(mapStateToProps, mapDispatchToProps)(AW)
+AppWrapper = connect(mapStateToProps, mapDispatchToProps)(AppWrapper);
 
 export default AppWrapper

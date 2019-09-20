@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import Slider from "../../ui-components/slider/slider";
 import './rating.scss';
-class Rating extends Component {
 
+class Rating extends Component {
   state = {
     ratingLinkId: null,
     rating: "5.5",
     comment: ""
   }
+
   componentDidMount(){
     const { match: { params } } = this.props;
     let fitrepUrl = process.env.REACT_APP_FITREP_URL;

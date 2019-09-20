@@ -7,7 +7,7 @@ import ControlPanel from '../../ui-components/control-panel/control-panel';
 import { connect } from "react-redux";
 import './home.scss';
 
-class H extends Component {
+class Home extends Component {
   state = {
     ratingLinkUuids: [],
     ratings: []
@@ -93,5 +93,5 @@ const mapStateToProps = (state) => {
   }
 };
 
-const Home = connect(mapStateToProps)(H);
+Home = connect(mapStateToProps)(Home);
 export default Home
