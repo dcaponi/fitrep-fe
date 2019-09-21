@@ -64,6 +64,7 @@ class Home extends Component {
   }
 
   render(){
+    let linkString = process.env.REACT_APP_LOGIN_URL + "/login?redirect=" + process.env.REACT_APP_RATINGS_URL;
     if(this.props.isAuthenticated){
       return (
         <AppWrapper>
@@ -80,7 +81,11 @@ class Home extends Component {
       );
     }
     return (
-      <AppWrapper><div className="home">Log in to continue</div></AppWrapper>
+      <AppWrapper>
+        <div className="home">
+          <a href={linkString}>Log in or Sign Up to Continue</a>
+        </div>
+      </AppWrapper>
     )
   }
 }
