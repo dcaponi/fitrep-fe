@@ -1,8 +1,8 @@
 .slidecontainer {
-  width: 100%; /* Width of the outside container */
+  width: 50%; /* Width of the outside container */
   padding: 10px 0px;
-  overflow-x: hidden;
-  overflow-y: visible;
+  margin: auto;
+  overflow: visible;
 }
 
 .slider-labels {
@@ -11,7 +11,6 @@
   justify-content: space-around;
   margin-bottom: 10px;
   font-size: 35px;
-  padding: 0px 20px;
 }
 
 .low-end-label {
@@ -33,7 +32,7 @@
 
 .slider {
   -webkit-appearance: none;
-  width: 95%;
+  width: 100%;
   cursor: pointer;
   height: 15px;
   border-radius: 25px;
