@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import withAuthenticatedUser from '../../HOC/with-authenticated-user';
+
 import AppWrapper from '../../ui-components/app-wrapper/app-wrapper';
 import CommentsBox from '../../ui-components/comments-box/comments-box';
 import Dashboard from '../../ui-components/dashboard/dashboard';
 import ControlPanel from '../../ui-components/control-panel/control-panel';
-
-import { connect } from "react-redux";
 
 class Home extends Component {
   state = {
@@ -90,12 +90,6 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isAuthenticated: state.isAuthenticated,
-    currentUser: state.currentUser
-  }
-};
+Home = withAuthenticatedUser(Home);
 
-Home = connect(mapStateToProps)(Home);
 export default Home
