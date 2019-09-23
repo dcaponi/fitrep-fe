@@ -12,8 +12,10 @@ let Header = (props) => {
   return (
     <header className="header">
       <div className="title">
-        <h1 className="main-title">Access</h1>
-        <h4 className="subtitle">Manage your account</h4>
+        <h1 className="main-title">Ratings</h1>
+        <h4 className="subtitle">Professional Feedback - Simplifiedcat
+
+        </h4>
       </div>
       <div className="sign-in">
         <a className="user-link" href={linkString}>{userNameString}</a>
