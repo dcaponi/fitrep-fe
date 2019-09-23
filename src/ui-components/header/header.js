@@ -13,7 +13,7 @@ let Header = (props) => {
     <header className="header">
       <div className="title">
         <h1 className="main-title">Ratings</h1>
-        <h4 className="subtitle">Professional Feedback - Simplifiedcat
+        <h4 className="subtitle">Professional Feedback - Simplified
 
         </h4>
       </div>
