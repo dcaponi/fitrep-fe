@@ -3,7 +3,7 @@ import Slider from "../../ui-components/slider/slider";
 
 class Rating extends Component {
   state = {
-    ratingLinkId: null,
+    surveyId: null,
     rating: "5.5",
     comment: ""
   }
@@ -11,10 +11,10 @@ class Rating extends Component {
   componentDidMount(){
     const { match: { params } } = this.props;
     let fitrepUrl = process.env.REACT_APP_FITREP_URL;
-    fetch(`${fitrepUrl}/rating_link/`+ params.id, {})
+    fetch(`${fitrepUrl}/survey/`+ params.id, {})
     .then((res) => {
       if(res.status === 200) {
-        this.setState({ratingLinkId: params.id});
+        this.setState({surveyId: params.id});
       }
       else{
         console.log("An active rating link with the given id was not found")
@@ -33,7 +33,7 @@ class Rating extends Component {
       },
       body: JSON.stringify({
         rating: {
-          rating_link_uuid: this.state.ratingLinkId,
+          survey_uuid: this.state.surveyId,
           rating: this.state.rating,
           comment: this.state.comment
         }
@@ -58,7 +58,7 @@ class Rating extends Component {
   }
 
   render(){
-    if(this.state.ratingLinkId) {
+    if(this.state.surveyId) {
       return (
         <div className="rating">
           <h3 className="rating-header">Leave Your Feedback</h3>

@@ -8,13 +8,13 @@ import ControlPanel from '../../ui-components/control-panel/control-panel';
 
 class Home extends Component {
   state = {
-    ratingLinkUuids: [],
+    surveyUuids: [],
     ratings: []
   }
 
   createLink = () => {
     let fitrepUrl = process.env.REACT_APP_FITREP_URL;
-    fetch(`${fitrepUrl}/rating_links`, {
+    fetch(`${fitrepUrl}/surveys`, {
       credentials: 'include',
       method: 'POST',
       headers: {
@@ -25,21 +25,21 @@ class Home extends Component {
     .then((res) => res.json())
     .then((res) => {
       let newState = Object.assign({}, this.state);
-      newState.ratingLinkUuids = [ res.rating_links[0].uuid ];
+      newState.surveyUuids = [ res.surveys[0].uuid ];
       this.setState(newState)
     })
   }
 
   destroyLink = (uuid) => {
     let fitrepUrl = process.env.REACT_APP_FITREP_URL;
-    fetch(`${fitrepUrl}/rating_links/${uuid}`, {
+    fetch(`${fitrepUrl}/surveys/${uuid}`, {
       credentials: 'include',
       method: 'DELETE'
     })
     .then((res) => res.json())
     .then((res) => {
       let newState = Object.assign({}, this.state);
-      newState.ratingLinkUuids = [];
+      newState.surveyUuids = [];
       this.setState(newState)
     })
   }
@@ -47,8 +47,8 @@ class Home extends Component {
   componentDidMount(){
     let fitrepUrl = process.env.REACT_APP_FITREP_URL;
     let ratingsReq = fetch(`${fitrepUrl}/ratings`, {credentials: 'include'})
-    let ratingLinksReq = fetch(`${fitrepUrl}/rating_links`, {credentials: 'include'})
-    Promise.all([ratingsReq, ratingLinksReq])
+    let surveysReq = fetch(`${fitrepUrl}/surveys`, {credentials: 'include'})
+    Promise.all([ratingsReq, surveysReq])
     .then((res) => {
       let resJson = res.map(r => r.json())
       return Promise.all(resJson)
@@ -57,7 +57,7 @@ class Home extends Component {
       let newState = Object.assign({}, this.state);
       if(res[0].ratings){
         newState.ratings = res[0].ratings;
-        newState.ratingLinkUuids = res[1].rating_links.map(r => r.uuid);
+        newState.surveyUuids = res[1].surveys.map(r => r.uuid);
         this.setState(newState)
       }
     })
@@ -73,7 +73,7 @@ class Home extends Component {
             <ControlPanel
               createLink={this.createLink}
               destroyLink={this.destroyLink}
-              ratingLinkUuids={this.state.ratingLinkUuids}
+              surveyUuids={this.state.surveyUuids}
             />
             <CommentsBox ratings={this.state.ratings} />
           </div>
