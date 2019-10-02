@@ -16,7 +16,7 @@ const Dashboard = (props) => {
         </div>
         <div className="stats-box-segment">
           <StatsBox title="Total Ratings"><TotalCount input={props.ratings}/></StatsBox>
-          <StatsBox title="Unique Ratings"><UniqCount input={props.ratings}/></StatsBox>
+          <StatsBox title="Unique Raters"><UniqCount input={props.ratings}/></StatsBox>
         </div>
       </div>
     </div>

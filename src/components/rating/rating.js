@@ -33,7 +33,7 @@ class Rating extends Component {
       },
       body: JSON.stringify({
         rating: {
-          rating_link_id: this.state.ratingLinkId,
+          rating_link_uuid: this.state.ratingLinkId,
           rating: this.state.rating,
           comment: this.state.comment
         }
